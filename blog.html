@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tech Insights Blog</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: rgb(255, 45, 45);
+            --primary-dark: rgb(220, 30, 30);
+            --white: #ffffff;
+            --black: #000000;
+            --gray: #f5f5f5;
+            --dark-gray: #333333;
+        }
+
+        body {
+            background-color: var(--white);
+            color: var(--dark-gray);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+
+        nav {
+            height: 10vh;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            background-color: black;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-family: "Roboto", sans-serif;
+        }
+
+        nav h3 {
+            margin-right: 130px;
+        }
+
+        nav h3 span {
+            color: rgb(255, 45, 45);
+        }
+
+
+        nav ul {
+            display: flex;
+            text-decoration: none;
+            list-style: none;
+            margin-left: 120px;
+            margin-right: 120px;
+            gap: 20px;
+            font-size: 0.9rem;
+            font-weight: 400;
+            cursor: pointer;
+        }
+
+        nav ul li {
+            padding: 12px;
+        }
+
+        nav ul li:hover {
+            background-color: rgb(255, 45, 45);
+            border-radius: 5px;
+            border: 0px;
+            padding: 12px;
+            transition: ease-in-out 0.4s;
+        }
+
+
+        nav a {
+            color: white;
+        }
+
+        nav button {
+            margin-left: 130px;
+            padding: 10px 15px;
+            border-radius: 0;
+            border: 0px;
+            color: white;
+            background-color: rgb(255, 45, 45);
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            border-radius: 20px;
+            color: rgb(255, 45, 45);
+            background-color: white;
+            transition: ease-in-out 0.5s;
+        }
+
+
+        /* Main Content */
+        .main-content {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 40px;
+            padding: 40px 0;
+        }
+
+        /* Blog Post */
+        .blog-post {
+            background-color: var(--white);
+            border-radius: 5px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .post-header {
+            padding: 30px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .post-title {
+            font-size: 32px;
+            margin-bottom: 15px;
+            color: var(--black);
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+            color: #666;
+            font-size: 14px;
+        }
+
+        .post-date,
+        .post-author,
+        .post-read-time {
+            margin-right: 20px;
+            display: flex;
+            align-items: center;
+        }
+
+        .post-meta i {
+            margin-right: 5px;
+            color: var(--primary);
+        }
+
+        .post-content {
+            padding: 30px;
+        }
+
+        .post-content p {
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+
+        .continue-reading {
+            display: inline-block;
+            background-color: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border-radius: 5px;
+            font-weight: 600;
+            margin-top: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .continue-reading:hover {
+            background-color: var(--primary-dark);
+        }
+
+        /* Sidebar */
+        .sidebar-widget {
+            background-color: var(--white);
+            padding: 30px;
+            border-radius: 5px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            margin-bottom: 30px;
+        }
+
+        .widget-title {
+            font-size: 22px;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 2px solid var(--primary);
+            color: var(--black);
+        }
+
+        .about-me {
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+            border: 5px solid var(--primary);
+        }
+
+        .author-name {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--black);
+        }
+
+        .author-bio {
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .view-posts {
+            display: inline-block;
+            color: var(--primary);
+            font-weight: 600;
+            margin-bottom: 25px;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: var(--black);
+            color: var(--white);
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+
+        .social-links a:hover {
+            background-color: var(--primary);
+        }
+
+        .recent-posts-list {
+            list-style: none;
+        }
+
+        .recent-posts-list li {
+            margin-bottom: 15px;
+            padding-bottom: 15px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .recent-posts-list li:last-child {
+            margin-bottom: 0;
+            padding-bottom: 0;
+            border-bottom: none;
+        }
+
+        .recent-post-title {
+            color: var(--dark-gray);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        .recent-post-title:hover {
+            color: var(--primary);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--black);
+            color: var(--white);
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .footer-logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            margin-bottom: 20px;
+        }
+
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            margin-bottom: 20px;
+        }
+
+        .footer-links li {
+            margin: 0 15px;
+        }
+
+        .footer-links a {
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--primary);
+        }
+
+        .copyright {
+            color: #aaa;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 992px) {
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+            nav {
+                display: flex;
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .post-title {
+                font-size: 26px;
+            }
+
+            .post-meta {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .post-date,
+            .post-author,
+            .post-read-time {
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    
+    <nav>
+        <h3>My <span>Portofolio</span></h3>
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li>About</li>
+            <li><a href="service.html">Service</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <button class="Get-in-Touch">
+            Get in Touch
+        </button>
+    </nav>
+    <div class="container">
+        <div class="main-content">
+            <main>
+                <div class="blog-post">
+                    <div class="post-header">
+                        <h1 class="post-title">Bagaimana Saya Membuat Website Blog Pertama Saya</h1>
+                        <div class="post-meta">
+                            <div class="post-date">
+                                <i class="far fa-calendar"></i> Agustus 10, 2023
+                            </div>
+                            <div class="post-author">
+                                <i class="far fa-user"></i> Oleh Andi Pratama
+                            </div>
+                            <div class="post-read-time">
+                                <i class="far fa-clock"></i> 3 min read
+                            </div>
+                        </div>
+                    </div>
+                    <div class="post-content">
+                        <p>Halo, nama saya Andi Pratama, seorang web developer pemula asal Indonesia. Dalam artikel ini,
+                            saya ingin berbagi pengalaman saya membuat website blog pertama saya. Semua bermula dari
+                            keinginan untuk memiliki platform di mana saya bisa berbagi pengetahuan tentang teknologi
+                            dengan orang lain.</p>
+
+                        <p>Sebagai seorang yang belajar coding secara otodidak, proses membuat website ini memberikan
+                            tantangan tersendiri. Saya memulai dengan mempelajari dasar-dasar HTML dan CSS melalui
+                            berbagai tutorial online. Butuh waktu sekitar dua minggu untuk benar-benar memahami struktur
+                            dasar sebuah halaman web sebelum saya berani memulai proyek pertama saya.</p>
+
+                        <p>Warna merah yang mendominasi blog ini saya pilih karena menurut penelitian psikologi warna,
+                            merah dapat menarik perhatian dan melambangkan semangat serta energi. Warna ini cocok dengan
+                            tema teknologi yang dinamis dan selalu berkembang. Kombinasi dengan hitam dan putih
+                            memberikan kontras yang baik untuk keterbacaan.</p>
+
+                        <p>Salah satu bagian tersulit dalam membuat blog ini adalah membuat layout yang responsif. Saya
+                            ingin blog saya dapat diakses dengan baik dari berbagai perangkat, mulai dari desktop,
+                            tablet, hingga smartphone. Setelah mencoba berbagai pendekatan, saya memutuskan menggunakan
+                            CSS Grid dan Flexbox untuk membuat tata letak yang fleksibel.</p>
+
+                        <p>Proses coding tidak selalu mulus. Banyak error yang saya temui, terutama saat menyesuaikan
+                            tampilan untuk berbagai ukuran layar. Seringkali, elemen-elemen tidak berada di posisi yang
+                            saya harapkan atau tumpang-tindih. Namun, dengan kesabaran dan mencari referensi di
+                            forum-forum developer, saya akhirnya berhasil menyelesaikan masalah-masalah tersebut.</p>
+
+                        <p>Bagian yang paling saya sukai dari membuat blog ini adalah desain sidebar. Di sana, saya
+                            menampilkan profil singkat tentang diri saya serta daftar artikel terbaru. Saya juga
+                            menambahkan ikon media sosial yang interaktif, yang berubah warna saat dihover oleh
+                            pengunjung.</p>
+
+                        <p>Setelah blog selesai, saya merasa sangat puas dengan hasilnya. Meskipun tidak sempurna, blog
+                            ini mewakili perjalanan belajar saya. Saya berharap blog ini dapat menginspirasi orang lain
+                            yang juga ingin belajar web development. Teknologi seharusnya dapat diakses oleh semua
+                            orang, dan dengan blog ini, saya berharap dapat membantu demokratisasi pengetahuan teknologi
+                            di Indonesia.</p>
+
+                        <p>Ke depan, saya berencana untuk menambahkan lebih banyak fitur, seperti sistem komentar,
+                            kategori artikel, dan mungkin integrasi dengan database untuk menyimpan artikel. Proses
+                            belajar tidak pernah berhenti, dan membuat blog ini hanyalah langkah pertama dari perjalanan
+                            panjang saya di dunia web development.</p>
+
+                        <p>Jika Anda tertarik untuk membuat blog serupa, jangan ragu untuk mencoba. Mulailah dengan
+                            dasar-dasar HTML dan CSS, kemudian eksplorasi sesuai dengan kreativitas Anda. Internet penuh
+                            dengan sumber belajar gratis yang dapat membantu Anda mencapai tujuan.</p>
+
+                        <a href="#" class="continue-reading">CONTINUE READING</a>
+                    </div>
+                </div>
+            </main>
+
+            <aside class="sidebar">
+                <div class="sidebar-widget about-me">
+                    <h2 class="widget-title">ABOUT ME</h2>
+                    <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Andi Pratama" class="profile-img">
+                    <h3 class="author-name">Andi Pratama</h3>
+                    <p class="author-bio">Halo, saya Andi Pratama, seorang web developer pemula dari Indonesia dengan
+                        ketertarikan pada segala hal tentang teknologi. Blog ini dibuat untuk membantu orang belajar
+                        tentang teknologi.</p>
+                    <a href="#" class="view-posts">VIEW ALL POSTS</a>
+
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+
+                <div class="sidebar-widget">
+                    <h2 class="widget-title">RECENT POSTS</h2>
+                    <ul class="recent-posts-list">
+                        <li><a href="#" class="recent-post-title">Bagaimana Saya Membuat Website Blog Pertama Saya</a>
+                        </li>
+                        <li><a href="#" class="recent-post-title">Mengapa JavaScript Sangat Penting untuk Web
+                                Development</a></li>
+                        <li><a href="#" class="recent-post-title">Tips Memilih Laptop Terbaik untuk Programming</a></li>
+                        <li><a href="#" class="recent-post-title">Perkembangan Teknologi AI di Indonesia</a></li>
+                        <li><a href="#" class="recent-post-title">Cara Membuat Aplikasi Mobile Pertama Anda</a></li>
+                    </ul>
+                </div>
+            </aside>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container footer-content">
+            <div class="footer-logo">TECH<span>BLOG</span></div>
+            <ul class="footer-links">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Videos</a></li>
+                <li><a href="#">Reviews</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <p class="copyright">&copy; 2023 TechBlog. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+
+</html>
