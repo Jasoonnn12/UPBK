@@ -6,6 +6,10 @@ const latest_work_part = document.querySelectorAll('.latest-work-part');
 const button_back = document.getElementById('button1');
 const button_forward = document.getElementById('button2');
 
+const nav2 = document.getElementById('nav2')
+const hamburgerBtn = document.getElementById('hamburgerBtn')
+const list = document.getElementById('List')
+
 const circles = [
   document.getElementById('circle1'),
   document.getElementById('circle2'),
@@ -55,3 +59,10 @@ setInterval(() => {
   projects_order = (projects_order + 1) % total_projects;
   updateCarousel();
 }, 7000);
+
+
+
+hamburgerBtn.addEventListener('click', function(){
+  list.classList.toggle("active")
+  console.log("pressed")
+})

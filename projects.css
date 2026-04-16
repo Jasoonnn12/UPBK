@@ -97,7 +97,12 @@ nav button:hover {
     font-family: Roboto, sans-serif;
 }
 
-.back-button i {
+#back-button btn{
+    background-color: red;
+    padding: 50px;
+}
+
+#back-button i {
     color: white;
 }
 
