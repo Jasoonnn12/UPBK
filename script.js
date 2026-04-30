@@ -1,5 +1,5 @@
 // === Get elements ===
-const carousel_parent = document.querySelector('.carouselparent');
+const carousel_parent = document.getElementById('carouselparent');
 const latest_work = document.querySelector('.latest-work');
 const latest_work_part = document.querySelectorAll('.latest-work-part');
 
@@ -9,6 +9,7 @@ const button_forward = document.getElementById('button2');
 const nav2 = document.getElementById('nav2')
 const hamburgerBtn = document.getElementById('hamburgerBtn')
 const list = document.getElementById('List')
+
 
 const circles = [
   document.getElementById('circle1'),
@@ -38,6 +39,19 @@ function updateCarousel() {
 
   
   latest_work.style.transform = `translateX(${offset}px)`;
+
+
+// const activeEl = latest_work_part[projects_order];
+// const parentRect = carousel_parent.getBoundingClientRect();
+// const activeRect = activeEl.getBoundingClientRect();
+
+// const offset =
+//   (parentRect.width / 2) -
+//   (activeRect.left - parentRect.left + activeRect.width / 2);
+
+// latest_work.style.transform = `translateX(${offset}px)`;
+
+
   latest_work.style.transition = 'transform 0.6s ease';
 }
 

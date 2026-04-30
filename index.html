@@ -22,8 +22,8 @@
 </head>
 
 <body>
-    <nav>
-        <img src="asset/logoreal.png" width="100px" alt="" srcset="">
+    <nav class="nav1">
+        <img src="asset/reallogo.png" width="100px" alt="" srcset="">
         <ul>
             <li>Home</li>
             <li><a href="service.html">Service</a></li>
@@ -34,6 +34,18 @@
             Get in Touch
         </button>
     </nav>
+
+    <div class="nav2" id="nav2">
+        <img src="asset/reallogo.png" width="100px" alt="" srcset="">
+        <button id="hamburgerBtn" class="hamburger-btn">&#9776;</button>
+        <ul id="List">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="service.html">Service</a></li>
+            <li><a href="projects.html">Projects</a></li>
+            <li><a href="blog.html">Blog</a></li>
+        </ul>
+        <button class="Get-in-Touch">Get in Touch</button>
+    </div>
 
     <div class="container">
         <div class="container-text">
@@ -111,26 +123,25 @@
                 </div>
                 <div class="latest-work-part">
                     <div class="latest-work-part1">
-                        <img src="asset/LatestWork5.png" alt="" style="width: 100%; border-radius: 20px 20px 0 0">
+                        <img src="asset/currencything.png" alt="" style="width: 100%; border-radius: 20px 20px 0 0">
                     </div>
                     <div class="latest-work-part2">
-                        <h3>Responsive Website</h3>
-                        <p>A website designed to adapt smoothly to phone, tablet, and desktop screens.</p>
+                        <h3>Currency Convertor</h3>
+                        <p>A simple website to convert 4 currencies.</p>
                     </div>
                 </div>
             </div>
         </div>
         <div class="controls">
-            <button id="button1" class="button">
-                < </button>
-                    <div class="carousel-position">
-                        <div id="circle1" class="circle"></div>
-                        <div id="circle2" class="circle"></div>
-                        <div id="circle3" class="circle"></div>
-                        <div id="circle4" class="circle"></div>
-                        <div id="circle5" class="circle"></div>
-                    </div>
-                    <button id="button2" class="button">></button>
+            <button id="button1" class="button">&#8592;</button>
+            <div class="carousel-position">
+                <div id="circle1" class="circle"></div>
+                <div id="circle2" class="circle"></div>
+                <div id="circle3" class="circle"></div>
+                <div id="circle4" class="circle"></div>
+                <div id="circle5" class="circle"></div>
+            </div>
+            <button id="button2" class="button">&#8594;</button>
         </div>
     </div>
 
@@ -138,7 +149,8 @@
         <div class="top-Footer">
             <div class="left-Footer1">
                 <h3>My Portofolio</h3>
-                <p>I am a passionate web design student dedicated to building clean, responsive, and user-friendly digital experiences. This portfolio showcases my journey in mastering HTML, CSS, and modern UI design principles. If you're looking for a fresh perspective on your next project, feel free to reach out via my Contact Page.</div>
+                <p>I am a passionate web design student dedicated to building clean, responsive, and user-friendly digital experiences. This portfolio showcases my journey in mastering HTML, CSS, and modern UI design principles.</p>
+            </div>
             <div class="left-Footer2">
                 <h3>School</h3>
                 <p>Jl. A.M Sangaji No.24, Gajahan, Kec. Ps. Kliwon, Kota Surakarta, Jawa Tengah 57155, Indonesia</p>
@@ -149,20 +161,19 @@
                     <h3>Links</h3>
                     <ul>
                         <li><a href="#">Home</a></li>
-                        <li><a href="#">Service</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Blog</a></li>
+                        <li><a href="service.html">Service</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="blog.html">Blog</a></li>
                     </ul>
                 </div>
             </div>
             <a href="#" class="top_button"><i class="fa-solid fa-arrow-up"></i></a>
         </div>
         <div class="bottom-Footer">
-            <p>My Portofolio © 2025 - All Right Reserved</p>
+            <p>My Portofolio &copy; 2025 - All Right Reserved</p>
         </div>
     </div>
 </body>
-<script src="carousel.js"></script>
+<script src="script.js"></script>
 
 </html>

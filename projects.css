@@ -24,6 +24,7 @@ nav {
     justify-content: center;
     color: white;
     font-family: "Roboto", sans-serif;
+    z-index: 1;
 }
 
 nav h3 {
@@ -89,7 +90,6 @@ nav button:hover {
     position: relative;
     background-size: cover;
     background-repeat: no-repeat;
-    z-index: -1;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -97,12 +97,12 @@ nav button:hover {
     font-family: Roboto, sans-serif;
 }
 
-#back-button btn{
-    background-color: red;
-    padding: 50px;
+.back-button {
+    z-index: 10; 
+    background-color: rgb(255, 45, 45);
 }
 
-#back-button i {
+.back-button i {
     color: white;
 }
 
